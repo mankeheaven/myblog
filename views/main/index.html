@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<link rel="icon" href="/public/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/public/css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
+	<script src="/public/js/jquery-1.8.3.min.js"></script>
+	<script src="/public/js/index.js"></script>
+</head>
+<body>
+<div id="nav">
+	<ul>
+		<li><a href="#">html</a></li>
+		<li><a href="#">css</a></li>
+		<li><a href="#">javascript</a></li>
+		<li><a href="#">node</a></li>
+		<li><a href="#">java</a></li>
+		<li><a href="#">react</a></li>
+	</ul>
+</div>
+<div id="main">
+	<div id="content">暂留区域</div>
+	<div id="aside">
+		{% if userInfo._id %}
+		<div id="userInfo">
+			<h3>用户信息</h3>
+			<p>欢迎您 <span class="user">{{userInfo.username}}</span></p>
+			{% if userInfo.isAdmin %}
+				<p><span class="isAdmin">你好，管理员</span><a class="admin" href="/admin">进入管理</a></p>
+			{% endif %}
+			
+			<p><a id="logout" href="javascript:void(0)">退出</a></p>
+		</div>
+		{% else %}
+		<div id="login"  class="form">
+			<h3>登录</h3>
+			<p><span>用户名：</span><input type="text" name="username"/></p>
+			<p><span>密码：</span><input type="password" name="password"/></p>
+			<p class="login_btn"><input type="submit" value="登录"/></p>
+			<p class="result"><em></em><a id="toRegister" href="javascript:void(0)">没有账号，注册？</a></p>
+		</div>
+		<div id="register" style="display:none" class="form">
+			<h3>注册</h3>
+			<p><span>用户名：</span><input type="text" name="username"/></p>
+			<p><span>密码：</span><input type="password" name="password"/></p>
+			<p><span>确认密码：</span><input type="password" name="repassword"/></p>
+			<p class="register_btn"><input type="submit" value="注册"/></p>
+			<p class="result"><em></em><a id="toLogin" href="javascript:void(0)">已有账号，登录？</a></p>
+		</div>
+		{% endif %}
+	</div>
+</div>
+</body>
+</html>

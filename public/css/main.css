@@ -1,0 +1,51 @@
+/*nav*/
+#nav{text-align:center;font-size:16px;background:#000;}
+#nav ul{text-align:center;overflow:hidden;width:1000px;margin:0 auto;}
+#nav ul li{float:left;padding:10px 20px;}
+#nav ul li a{font-size:18px;color:#f80;}
+
+/*main*/
+#main{width:1000px;margin:0 auto;overflow:hidden;margin-top:14px;}
+/*content*/
+
+#content{width:700px;float:left;background:#eee;height:500px;}
+
+/*aside*/
+#aside{width:280px;float:right;height:200px;}
+
+/*userInfo*/
+#userInfo{padding:10px 0px;overflow:hidden;border:1px solid #ddd;border-radius:6px;}
+#userInfo p,#userInfo h3{text-align:center;padding:2px 0px;font-size:14px;}
+#userInfo p a{float:right;margin-right:20px;display:inline-block;font-size:14px;}
+#userInfo p a:hover{color:#428bca;text-decoration:underline;}
+/*login/register*/
+.form{padding:10px 0px;overflow:hidden;border:1px solid #ddd;border-radius:6px;}
+.form h3{font-size:18px;text-align:center;color:#333;letter-spacing:20px;text-indent:20px;padding:3px 0px;}
+.form p{font-size:14px;padding:6px 10px;color:#2d4469;text-align:center;}
+.form input{border:1px solid rgba(4,40,188,.3);padding:3px 0px;text-indent:8px;width:160px;}
+.form p span{display:inline-block;width:72px;}
+.form .login_btn{text-align:center;}
+.form input[type="submit"]{letter-spacing:10px;text-indent:10px;font-size:14px;width:110px;border:none;border-radius:3px;background:#428bca;cursor:pointer;color:#fff;}
+.form input[type="submit"]:hover{color:#428bca;background:#ddd;}
+.form a{float:right;margin-right:10px;}
+.form a:hover{color:#428bca;text-decoration:underline;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
