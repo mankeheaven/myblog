@@ -26,20 +26,22 @@ app.use(function(req,res,next){
 	//解析登录用户信息
 	req.userInfo={};
 	if(req.cookies.get("userInfo")){
+		
 		try{
 			req.userInfo=JSON.parse(req.cookies.get("userInfo"));
 			
 			//获取当前登录用户的类型，是否是管理员
 			User.findById(req.userInfo._id).then(function(userInfo){
-				
 				req.userInfo.isAdmin=Boolean(userInfo.isAdmin);
-				
+				next();
 			})
 		}catch(e){
-			
+			next();
 		}
+	}else{
+		next();
 	}
-	next();
+	
 });
 
 //静态文件

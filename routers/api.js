@@ -79,7 +79,7 @@ router.post("/user/register",function(req,res,next){
 	User.findOne({
 		username:username
 	}).then(function(userInfo){
-		console.log(userInfo);
+		
 		if(userInfo){
 			responseData.code=4;
 			responseData.message="用户名已经被注册了";
