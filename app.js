@@ -17,8 +17,12 @@ app.set("views","./views");
 app.set("view engine","html");
 swig.setDefaults({cache:false});
 
+
 //bodyparser
 app.use(bodyParser.urlencoded({ extended: false }))
+
+
+
 
 //cookies
 app.use(function(req,res,next){
