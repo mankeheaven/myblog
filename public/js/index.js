@@ -15,6 +15,12 @@ $(function(){
 		$login.show();
 	});
 	//登录
+	$login.find("input[name='password']").bind('keyup', function(event) {
+		if (event.keyCode == "13") {
+			//回车执行查询
+			$login_btn.click();
+		}
+	});
 	$login_btn.click(function(){
 		var username=$login.find("input[name='username']").val();
 		var password=$login.find("input[name='password']").val();
@@ -84,5 +90,23 @@ $(function(){
 			}
 		})
 	})
+
+	//搜索
+	$("#search_btn").click(function(){
+
+		var search_txt=$("#search_text").val();
+		console.log(search_txt);
+		if(search_txt.trim()==""){
+			$("#search_text").attr('placeholder','不能为空');
+		}else{
+			location.href="/?search="+search_txt.trim();
+		}
+	})
+	$('#search_text').bind('keyup', function(event) {
+		if (event.keyCode == "13") {
+			//回车执行查询
+			$('#search_btn').click();
+		}
+	});
 
 });

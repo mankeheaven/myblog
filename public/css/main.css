@@ -1,15 +1,23 @@
+body{background:#f4f4f4;}
+
 /*nav*/
 #nav{text-align:center;font-size:16px;background:#000;}
 #nav ul{text-align:center;overflow:hidden;width:1000px;margin:0 auto;}
-#nav ul li{float:left;padding:10px 20px;}
-#nav ul li a{font-size:18px;color:#f80;}
+#nav ul li{float:left;border-radius:3px}
+#nav ul li a{font-size:18px;color:#f80;display:block;width:100%;height:100%;padding:10px 20px;}
+#nav ul li.focus{background:#fff;}
+#nav ul li.focus a{color:red;}
+
+#search{text-align: center;height:40px;line-height:40px;background: #eee;}
+#search input{border:1px solid #30a179;;height:28px;width:200px;text-indent: 8px;line-height:28px;}
+#search a{font-size:16px;display: inline-block;color:#f90;padding:5px;font-weight: bold;}
 
 /*main*/
 #main{width:1000px;margin:0 auto;overflow:hidden;margin-top:14px;}
 /*content*/
 
-#content{width:700px;float:left;background:#eee;height:500px;}
-
+#content{width:700px;float:left;}
+.noContent{font-size:18px;text-align: center;height:50px;line-height:50px;}
 /*aside*/
 #aside{width:280px;float:right;height:200px;}
 
@@ -30,22 +38,30 @@
 .form a{float:right;margin-right:10px;}
 .form a:hover{color:#428bca;text-decoration:underline;}
 
+/*内容区域*/
+.listBox{margin-top:10px;padding:10px 20px;border:1px solid #bbb;border-radius: 5px;overflow: hidden;}
+.listBox>h1{font-size:18px;padding:5px 0;font-weight:500;text-align:center;color:#f80;}
+.listBox p.colDefault{word-spacing:12px;padding:5px 0; text-align:center;}
+.listBox p.colDefault span{color:#337ab7;}
+.listBox .description{padding:10px 0;}
+.listBox .function{text-align:right;}
+.listBox .function a{color:#337ab7;}
 
+.page{padding:10px;text-align:center;word-spacing: 50px;}
 
+.contentBox{padding:20px 0;line-height:20px;text-indent:2rem;font-size:14px;}
 
+/*评论*/
+.message .em{float:right;font-weight: 200;}
+.message .textLeft{line-height:30px;}
+.message .content{width:100%;}
+.message #messageContent{width:550px;height:80px;float:left;}
+.message #messageBtn{float:left;width:80px;height:80px;background:#428bca;color:#fff;font-size:18px;cursor:pointer;}
+.message .bgDanger{height:30px;text-align: center;background: #f90;cursor:pointer;}
 
+.messageList{margin-top:10px;}
+.messageList .messageBox{border-bottom: 1px solid #ccc;width:100%;padding:8px 0 4px 0;}
+.messageList .messageBox .content{line-height: 30px;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.pager{padding:10px 0;}
+.pager li{float:left;width:33.33%;text-align:center;}

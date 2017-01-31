@@ -1,54 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>index</title>
-	<link rel="icon" href="/public/images/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="/public/css/reset.css"/>
-	<link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
-	<script src="/public/js/jquery.min.js"></script>
-	<script src="/public/js/index.js"></script>
-</head>
-<body>
-<div id="nav">
-	<ul>
-		<li><a href="/">首页</a></li>
-		{% for category in categories %}
-			<li><a href="/">{{category.name}}</a></li>
-		{% endfor %}
-	</ul>
-</div>
-<div id="main">
-	<div id="content">暂留区域</div>
-	<div id="aside">
-		{% if userInfo._id %}
-		<div id="userInfo">
-			<h3>用户信息</h3>
-			<p>欢迎您 <span class="user">{{userInfo.username}}</span></p>
-			{% if userInfo.isAdmin %}
-				<p><span class="isAdmin">你好，管理员</span><a class="admin" href="/admin">进入管理</a></p>
-			{% endif %}
-			
-			<p><a id="logout" href="javascript:void(0)">退出</a></p>
-		</div>
-		{% else %}
-		<div id="login"  class="form">
-			<h3>登录</h3>
-			<p><span>用户名：</span><input type="text" name="username"/></p>
-			<p><span>密码：</span><input type="password" name="password"/></p>
-			<p class="login_btn"><input type="submit" value="登录"/></p>
-			<p class="result"><em></em><a id="toRegister" href="javascript:void(0)">没有账号，注册？</a></p>
-		</div>
-		<div id="register" style="display:none" class="form">
-			<h3>注册</h3>
-			<p><span>用户名：</span><input type="text" name="username"/></p>
-			<p><span>密码：</span><input type="password" name="password"/></p>
-			<p><span>确认密码：</span><input type="password" name="repassword"/></p>
-			<p class="register_btn"><input type="submit" value="注册"/></p>
-			<p class="result"><em></em><a id="toLogin" href="javascript:void(0)">已有账号，登录？</a></p>
-		</div>
-		{% endif %}
+{%extends 'layout.html'%}
+
+{%block content%}
+{% if contents.length>0 %}
+{% for content in contents %}
+	<div class="listBox">
+		<h1>{{content.title}}</h1>
+		<p class="colDefault">
+			作者：<span class="colInfo">{{content.user.username||"不详"}}</span>
+			时间：<span class="colInfo">{{content.addTime|date("Y年m月d日 H:i:s",-8*60)}}</span>
+			阅读：<span class="colInfo">{{content.views}}</span>
+			评论：<span class="colInfo">{{content.comments.length}}</span>
+		</p>
+		<div class="description"><p>{{content.description}}</p></div>
+		<div class="function"><a href="/view?contentId={{content.id}}&category={{content.category.id}}">阅读全文</a></div>
 	</div>
-</div>
-</body>
-</html>
+	{% endfor %}
+	<p class="page">{%if page<=1%}
+	<span>没有上一页</span>
+	{%else%}
+
+		{% if category %}
+		<a href='/?category={{category}}&page={{page-1}}'>上一页</a>
+		{%else%}
+		<a href='/?search={{search}}&page={{page-1}}'>上一页</a>
+		{%endif%}
+	{%endif%}
+	{%if pages>0%}
+	<span>当前页：{{page}}</span>|总数：{{count}}|/<span>总页数：{{pages}}</span>
+	{%endif%}
+	{%if page>=pages%}
+	<span>没有下一页</span>
+	{%else%}
+		{% if category %}
+		<a href='/?category={{category}}&page={{page+1}}'>下一页</a>
+		{%else%}
+		<a href='/?search={{search}}&page={{page+1}}'>下一页</a>
+		{%endif%}
+	
+	{%endif%}</p>
+{% else %}
+<div class="noContent">未搜索到内容</div>
+{% endif %}
+{%endblock%}
